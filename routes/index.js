@@ -1,8 +1,10 @@
-
+var app = module.parent.exports.app,
+    transit = require('../models/transit.js');
 /*
  * GET home page.
  */
 
-exports.index = function(req, res){
+app.get('/', function(req, res) {
+  transit.directions("Brooklyn", "Queens");
   res.render('index', { title: 'Express' });
-};
+});
