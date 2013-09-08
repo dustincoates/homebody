@@ -8,6 +8,7 @@
   "dependencies": {
     "express": "3.3.4",
     "jade": "*",
-    "ws": "~0.4.30"
+    "ws": "~0.4.30",
+    "nodemon": "~0.7.10"
   }
 }
