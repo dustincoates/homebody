@@ -8,8 +8,9 @@
   "dependencies": {
     "express": "3.3.4",
     "jade": "*",
-    "ws": "~0.4.30",
     "nodemon": "~0.7.10",
-    "mongoose": "~3.6.19"
+    "mongoose": "~3.6.19",
+    "socket.io": "~0.9.16",
+    "xmldoc": "~0.1.2"
   }
 }
