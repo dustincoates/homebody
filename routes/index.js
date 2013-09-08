@@ -5,6 +5,9 @@ var app = module.parent.exports.app,
  */
 
 app.get('/', function(req, res) {
-  transit.directions("Brooklyn", "Queens");
-  res.render('index', { title: 'Express' });
+  transit.statuses(["G"], function(statuses) {
+    console.log(statuses);
+    res.render('index', { title: 'Express' });
+  });
 });
+
