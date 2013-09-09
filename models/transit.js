@@ -10,22 +10,22 @@ var LINES = {
   "5": "456",
   "6": "456",
   "7": "7",
-  "A": "ACE",
-  "C": "ACE",
-  "E": "ACE",
-  "B": "BDFM",
-  "D": "BDFM",
-  "F": "BDFM",
-  "M": "BDFM",
-  "G": "G",
-  "J": "JZ",
-  "Z": "JZ",
-  "L": "L",
-  "N": "NQR",
-  "Q": "NQR",
-  "R": "NQR",
-  "S": "S",
-  "SIR": "SIR"
+  "a": "ACE",
+  "c": "ACE",
+  "e": "ACE",
+  "b": "BDFM",
+  "d": "BDFM",
+  "f": "BDFM",
+  "m": "BDFM",
+  "g": "G",
+  "j": "JZ",
+  "z": "JZ",
+  "l": "L",
+  "n": "NQR",
+  "q": "NQR",
+  "r": "NQR",
+  "s": "S",
+  "sir": "SIR"
 }
 
 module.exports.statuses = function(lines, callback) {
@@ -48,8 +48,9 @@ module.exports.statuses = function(lines, callback) {
 
         return lineStatuses(subwayLines, function(res) {
             for (var i = lines.length - 1; i >= 0; i--) {
-              if (res[LINES[lines[i]]] !== 'GOOD SERVICE') {
-                userStatuses[lines[i]] = res[LINES[lines[i]]]
+              lineName = lines[i].toLowerCase();
+              if (res[LINES[lineName]] !== 'GOOD SERVICE') {
+                userStatuses[lineName] = res[LINES[lineName]]
               };
             };
         });
