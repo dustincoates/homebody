@@ -1,5 +1,6 @@
-var app = module.parent.exports.app,
-    transit = require('../models/transit.js');
+var app = module.parent.exports.app
+    , io = module.parent.exports.io
+    , transit = require('../models/transit.js');
 /*
  * GET home page.
  */

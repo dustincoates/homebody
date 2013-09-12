@@ -1,10 +1,19 @@
 extends layout
 
 block content
+  form#test-form
+    textarea
+    br
+    input(type='button', value='submit', id="btn")
   script(src='/socket.io/socket.io.js').
   script.
     var socket = io.connect('http://localhost');
     socket.on('news', function(data){
       console.log(data);
       socket.emit('my other event', {my: 'data'});
+    })
+    $(function(){
+      $('#btn').click(function(){
+        socket.emit('add note', {note: $('textarea').val()});
+      });
     })

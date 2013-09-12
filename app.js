@@ -35,7 +35,12 @@ io.sockets.on('connection', function (socket) {
   socket.on('my other event', function (data) {
     console.log(data);
   });
+  socket.on('add note', function(data) {
+    console.log("!!!!!!!!!!!!");
+    console.log(data);
+  });
 });
 
 module.exports.app = app;
+module.exports.io = io;
 routes = require('./routes');

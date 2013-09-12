@@ -1,3 +1,5 @@
+// TODO: Cache the MTA info.
+
 var parseString = require('xml2js').parseString,
     http = require('http'),
     repl = require('repl');
