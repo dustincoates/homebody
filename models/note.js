@@ -1,8 +1,9 @@
 var Schema = require('mongoose').Schema;
 
 var NoteSchema = Schema({
-  dateCreated: {type: Date, required: true}
+  dateTimeCreated: {type: Date, required: true}
   , message: {type: String, required: true}
+  , active: {type: Boolean, required: true}
 })
 
 module.exports = NoteSchema;

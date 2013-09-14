@@ -40,22 +40,12 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-server = http.createServer(app).listen(app.get('port'));
+var server = http.createServer(app).listen(app.get('port'))
+    , io = require('socket.io').listen(server);
 
-var io = require('socket.io').listen(server);
-
-// need to clean this up for each info type
-io.sockets.on('connection', function (socket) {
-  socket.emit('news', { hello: 'world' });
-  socket.on('my other event', function (data) {
-    console.log(data);
-  });
-  socket.on('add note', function(data) {
-    console.log("!!!!!!!!!!!!");
-    console.log(data);
-  });
-});
-
+// Exports
 module.exports.app = app;
 module.exports.io = io;
-routes = require('./routes');
+
+// Routes
+var routes = require('./routes');
