@@ -1,0 +1,61 @@
+[Sun, 15 Sep 2013 02:21:50 GMT] INFO Server starting with config: {
+  "environment": "development",
+  "workers": 1,
+  "port": 4000,
+  "spdy": null,
+  "ssl": null,
+  "flash": {
+    "defaultClass": "alert",
+    "inlineClasses": {
+      "success": "alert alert-success",
+      "alert": "alert",
+      "error": "alert alert-error",
+      "info": "alert alert-info"
+    },
+    "blockClasses": {
+      "success": "alert alert-block alert-success",
+      "alert": "alert alert-block",
+      "error": "alert alert-block alert-error",
+      "info": "alert alert-block alert-info"
+    }
+  },
+  "debug": true,
+  "rotateWorkers": false,
+  "rotationWindow": 7200000,
+  "rotationTimeout": 300000,
+  "logDir": "C:\\Users\\dusti_000\\Documents\\Web\\homebody\\log",
+  "gracefulShutdownTimeout": 30000,
+  "heartbeatInterval": 5000,
+  "heartbeatWindow": 20000,
+  "staticFilePath": "C:\\Users\\dusti_000\\Documents\\Web\\homebody\\public",
+  "cacheControl": {
+    "expires": {
+      "default": 0
+    }
+  },
+  "sessions": {
+    "store": "memory",
+    "key": "sid",
+    "expiry": 1209600
+  },
+  "cookieSessionKey": "sdata",
+  "i18n": {
+    "defaultLocale": "en-us",
+    "loadPaths": [
+      "C:\\Users\\dusti_000\\Documents\\Web\\homebody\\config\\locales"
+    ]
+  },
+  "hostname": null,
+  "fullHostname": null,
+  "connectCompatibility": false,
+  "detailedErrors": true,
+  "model": {
+    "defaultAdapter": "mongo"
+  },
+  "db": {
+    "mongo": {
+      "dbname": "homebody"
+    }
+  }
+}
+[Sun, 15 Sep 2013 02:21:50 GMT] INFO Creating 1 worker process.
