@@ -1,18 +1,19 @@
 {
   "name": "Homebody",
   "version": "0.0.1",
-  "author": "Dustin A Coates",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
+    "express": "3.3.4",
     "jade": "*",
     "nodemon": "~0.7.10",
+    "mongoose": "~3.6.19",
     "socket.io": "~0.9.16",
     "xml2js": "~0.2.8",
     "backbone": "~1.0.0",
     "stylus": "~0.37.0",
     "nib": "~1.0.1"
-  },
-  "devDependencies": {},
-  "engines": {
-    "node": "0.8.x"
   }
 }
