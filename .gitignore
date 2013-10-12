@@ -7,4 +7,3 @@ node_modules
 npm-debug.log
 config/secrets.json
 public/js/core/models.js
-log/
