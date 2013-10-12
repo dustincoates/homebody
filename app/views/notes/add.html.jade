@@ -1,0 +1,14 @@
+.hero-unit
+  form#note-form.form-horizontal(action="/notes", method="POST")
+    fieldset
+      legend Create a new Note
+      if params.errors
+        .control-group
+          ul
+          for err in params.errors
+            li= err
+
+      != partial('form', {note: {}})
+
+      .form-actions
+        != contentTag('input', 'Add', {type: 'submit', class: 'btn btn-primary'})

@@ -1,0 +1,15 @@
+.hero-unit
+  form#note-form.form-horizontal(action="/notes/" + params.id + "?_method=PUT", method="POST")
+    fieldset
+      legend Update this Note
+      if params.errors
+        .control-group
+          ul
+          for err in params.errors
+            li= err
+
+      != partial('form', {note: note})
+
+      .form-actions
+        != contentTag('input', 'Save', {type: 'submit', class: 'btn btn-primary'})
+        != contentTag('button', 'Remove', {type: 'submit', formaction: '/notes/' + params.id + '?_method=DELETE', formmethod: 'POST', class: 'btn btn-danger'})

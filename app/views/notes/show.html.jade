@@ -1,0 +1,36 @@
+.hero-unit
+  h2.id= note.id
+  != linkTo('Edit this note', editNotePath(params.id), {class: 'btn pull-right'})
+
+h2 Note Properties
+each property, key in note
+  if key !== 'saved'
+    .row.list-item
+      .span4
+        h3= key
+      .span8
+        h3
+          i.icon-list-alt
+          span(class=key)= property
+
+script(type="text/javascript")
+  $(function () {
+    var pageId = window.location.pathname.split('/')[2];
+
+    geddy.io.addListenersForModels(['Note']);
+
+    geddy.model.Note.on('update', function (note) {
+      if (note.id == pageId) {
+        var properties = note.toData();
+        for (var i in properties) {
+          $('.'+i).text(properties[i]);
+        }
+      }
+    });
+
+    geddy.model.Note.on('remove', function (id) {
+      if (id == pageId) {
+        window.location = '/notes';
+      }
+    });
+  });
