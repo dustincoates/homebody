@@ -1,6 +1,7 @@
 var app = module.parent.exports.app
     , io = module.parent.exports.io
-    , transit = require('../models/transit.js');
+    , transit = require('../models/transit.js')
+    , db = require('../models/');
 /*
  * GET home page.
  */
@@ -18,12 +19,18 @@ app.get('/hello', function(req, res) {
   // need to clean this up for each info type
   io.sockets.on('connection', function (socket) {
     socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-      console.log(data);
-    });
     socket.on('add note', function(data) {
-      console.log("!!!!!!!!!!!!");
-      console.log(data);
+      note = new db.Note();
+      note.message = data.message;
+      note.active = true;
+      note.dateTimeCreated = new Date();
+      note.save(function(err) {
+        if(err){
+          socket.emit('news', { note: err })
+        } else {
+          socket.emit('news', { note: 'Note saved' })
+        }
+      });
     });
   });
 });
