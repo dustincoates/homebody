@@ -1,9 +1,14 @@
-var Schema = require('mongoose').Schema;
+var Schema = require('mongoose').Schema,
+    connection = require('./connection');
 
-var NoteSchema = Schema({
+var noteSchema = Schema({
   dateTimeCreated: {type: Date, required: true}
   , message: {type: String, required: true}
   , active: {type: Boolean, required: true}
 })
 
-module.exports = NoteSchema;
+// noteSchema.methods.foo = function(){};
+
+var Note = connection.model('Note', noteSchema);
+
+module.exports = Note;
