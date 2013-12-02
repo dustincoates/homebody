@@ -1,8 +1,7 @@
 // TODO: Cache the MTA info.
 
-var parseString = require('xml2js').parseString,
-    http = require('http'),
-    repl = require('repl');
+var parseString = require('xml2js').parseString
+  , http = require('http');
 
 var LINES = {
   "1": "123",
@@ -35,16 +34,17 @@ var LINES = {
 var Transit = function(lines) {
   this.requestedLines = lines;
   this.opts = {
-        host: 'www.mta.info',
-        path: '/status/serviceStatus.txt',
-        method: 'GET'
+        host: 'www.mta.info'
+        , path: '/status/serviceStatus.txt'
+        , method: 'GET'
   };
 };
 
 Transit.prototype.getStatus = function(callback) {
   var lines = this.requestedLines
     , userStatuses = {}
-    , req = http.get(this.opts, function(res) {
+    , req;
+  req = http.get(this.opts, function(res) {
     var body = '';
     res.on('data', function (data) {
       body += data;
@@ -77,4 +77,4 @@ function lineStatuses(subwayData, callback) {
   callback(statuses);
 }
 
-module.exports.Transit = Transit;
+module.exports = Transit;
