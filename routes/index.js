@@ -22,19 +22,23 @@ app.get('/data/mta/:lines', function(req, res) {
   });
 });
 
-app.get('/hello', function(req, res) {
-  res.render('hello', { title: 'Express' });
-});
-
-app.get('/data/weather/:lat/:lng',function(req, res) {
+app.get('/data/weather/:lat/:lng', function(req, res) {
   var lat = req.param('lat')
     , lng = req.param('lng');
   weather = new Weather(lat, lng);
   weather.getForecast(function(data) {
-    res.render('index', { title: data });
+    res.render('index', { title: data.icon });
   });
 });
 
+// TODO: Decide if this is kept or not
+app.get('/track', function(req, res) {
+  res.render('track/index', { title: 'Track Your Day'})
+});
+
+app.get('/dashboard', function(req, res) {
+  res.render('dashboard', { title: 'Express' });
+});
 
 // TODO:
 // need to clean this up for each info type
