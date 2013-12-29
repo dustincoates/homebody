@@ -29,6 +29,7 @@ Weather.prototype.getForecast = function(callback) {
       callback(body.currently);
     });
   }).on('error', function(err) {
+    // TODO: Need to handle this error better.
     console.log(err);
   });
 };
