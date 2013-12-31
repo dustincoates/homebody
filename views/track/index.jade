@@ -1,8 +1,29 @@
 extends ../layout
 
 block content
-  form#daily-tracker
-    select
-      option Foo
-      option Bar
-    input(name = "amount", type = "number", id = "amount")
+  .tracker
+    header
+        h1
+          - today = new Date()
+          = (today.getMonth() + 1) + "/" + (today.getDate())
+      form
+        .row
+          label(for="happiness") Happiness &mdash; Overall
+          input(type="range", id="happiness", min="0", max="10")
+        .row
+          label(for="happiness-friends") Happiness &mdash; Friends
+          input(type="range", id="happiness-friends", min="0", max="10")
+        .row
+          label(for="happiness-relationship") Happiness &mdash; Relationship
+          input(type="range", id="happiness-relationship", min="0", max="10")
+        .row
+          label(for="happiness-work") Happiness &mdash; Work
+          input(type="range", id="happiness-work", min="0", max="10")
+        .row
+          label(for="healthiness") Healthiness
+          input(type="range", id="healthiness", min="0", max="10")
+        .row
+          label(for="note") Today's Notes
+          textarea(id="note")
+        .row
+          input(type="submit", value="Log")
